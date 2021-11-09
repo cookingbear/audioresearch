@@ -1,0 +1,216 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Audio samples from "Improving Prosody for Unseen Texts in Speech Synthesis by Utilizing Linguistic Information and Noisy Data"</title>
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css"/>
+    <link rel="shortcut icon" href="../../images/taco.png">
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Audio samples from "Improving Prosody for Unseen Texts in Speech Synthesis by Utilizing Linguistic Information and Noisy Data"</h1>
+      </header>
+    </article>
+
+    <div><b>Paper:</b> <a href="https://arxiv.org/abs/1712.05884">arXiv</a></div>
+    <div><b>Authors:</b> Zhu Li, Yuqing Zhang, Mengxi Nie, Ming Yan, Mengnan He, Ruixiong Zhang, Caixia Gong</div>
+    <div><b>Abstract:</b> Recent advancements in end-to-end speech synthesis have made it possible to generate highly natural speech.
+    However, training these models typically requires a large amount of high-fidelity speech data, 
+    and for unseen texts, the prosody of synthesized speech is relatively unnatural.
+    To address these issues, we propose to combine a fine-tuned BERT-based front-end
+     with a pre-trained FastSpeech2-based acoustic model to improve prosody modeling. 
+     The pre-trained BERT is fine-tuned on the polyphone disambiguation task, 
+     the joint Chinese word segmentation (CWS) and part-of-speech (POS) tagging task, 
+     and the prosody structure prediction (PSP) task in a multi-task learning framework.
+    FastSpeech 2 is pre- trained on large-scale external data that are noisy but easier to obtain. 
+    Experimental results show that both the fine-tuned BERT model and the pre-trained FastSpeech 2 can improve prosody, 
+    especially for those structurally complex sentences.
+    </div>
+
+    <!-- <div><br/>All of the below phrases are unseen by Tacotron 2 during training. <a href="../../index.html">Click here for more from the Tacotron team.</a></div> -->
+
+    <div>
+<h3 id="comparison-with-other-models">All of the phrases below are unseen during training.</h3>
+
+
+<p><em>1. 但是发型还要改进一点。</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/3-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/3-w+BERT.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+  <th style="text-align: center">w/ BERT-CWS+POS</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/3-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/3-w+BERT-prosody.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/3-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table> 
+<table><thead>
+  <tr>
+  <th style="text-align: center">w/ clean</th>
+  <th style="text-align: center">w/ noisy</th>
+  </tr></thead><tbody>
+  <tr>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/3-w+clean.wav" autoplay/></audio></td>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/3-w+noisy.wav" autoplay/></audio></td>
+  </tr>
+  </tbody></table> 
+
+
+<p><em>2. 商家允诺三天送货到位。</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/7-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/7-w+BERT.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+  <th style="text-align: center">w/ BERT-CWS+POS</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/7-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/7-w+BERT-prosody.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/7-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table> 
+<table><thead>
+  <tr>
+  <th style="text-align: center">w/ clean</th>
+  <th style="text-align: center">w/ noisy</th>
+  </tr></thead><tbody>
+  <tr>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/7-w+clean.wav" autoplay/></audio></td>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/7-w+noisy.wav" autoplay/></audio></td>
+  </tr>
+  </tbody></table> 
+
+
+<p><em>3. 他们繁育的种子远销全国各地。</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/60-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/60-w+BERT.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+  <th style="text-align: center">w/ BERT-CWS+POS</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/60-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/60-w+BERT-prosody.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/60-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table> 
+<table><thead>
+  <tr>
+  <th style="text-align: center">w/ clean</th>
+  <th style="text-align: center">w/ noisy</th>
+  </tr></thead><tbody>
+  <tr>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/60-w+clean.wav" autoplay/></audio></td>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/60-w+noisy.wav" autoplay/></audio></td>
+  </tr>
+  </tbody></table> 
+
+
+
+<p><em>4. 这反应出美军方越来越关注网络战威胁。</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+  <th style="text-align: center">w/ BERT-CWS+POS</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT-prosody.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table> 
+<table><thead>
+  <tr>
+  <th style="text-align: center">w/ clean</th>
+  <th style="text-align: center">w/ noisy</th>
+  </tr></thead><tbody>
+  <tr>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+clean.wav" autoplay/></audio></td>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+noisy.wav" autoplay/></audio></td>
+  </tr>
+  </tbody></table>
+
+
+
+<p><em>5. 高昂的交易税费也缩小了二手房的降价空间。</em></p>
+<table><thead>
+<tr>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+  <th style="text-align: center">w/ BERT-CWS+POS</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT-prosody.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table> 
+<table><thead>
+  <tr>
+  <th style="text-align: center">w/ clean</th>
+  <th style="text-align: center">w/ noisy</th>
+  </tr></thead><tbody>
+  <tr>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+clean.wav" autoplay/></audio></td>
+  <td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+noisy.wav" autoplay/></audio></td>
+  </tr>
+  </tbody></table>
+  
+      </div>
+    
+
+  </body>
+</html>
