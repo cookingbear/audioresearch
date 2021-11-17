@@ -31,6 +31,11 @@
 <div>
 <h3 id="comparison-with-other-models">All of the phrases below are unseen during training.</h3>
 
+Base: FastSpeech 2 (Mel + MB-MelGAN).
+w/ BERT: a BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN).
+w/ BERT-CWS+POS: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-CWS+POS means BERT encoder with a prediction
+layer of the joint CWS and POS tagging task. 
+
 
 <p><em>1. 但是发型还要改进一点。</em></p>
 <table><thead>
@@ -139,7 +144,7 @@
   
 <h3 id="comparison-with-other-models">Pairwise Comparison of different models:</h3>
   
-<p><em> Base vs. w/ BERT </em></p>
+<p><em> 1. Base vs. w/ BERT </em></p>
 <table><thead>
 <tr>
 <th style="text-align: center">Base</th>
