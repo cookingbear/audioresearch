@@ -31,12 +31,23 @@
 <div>
 <h3 id="comparison-with-other-models">All of the phrases below are unseen during training.</h3>
 
-<b>Base</b>: FastSpeech 2 (Mel + MB-MelGAN).
+<b>Base</b>: FastSpeech 2 (Mel + MB-MelGAN).  <br />
   
-<b>w/ BERT</b>: a BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN).
+<b>w/ BERT</b>: a BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN).  <br />
   
 <b>w/ BERT-CWS+POS</b>: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-CWS+POS means BERT encoder with a prediction
-layer of the joint CWS and POS tagging task. 
+layer of the joint CWS and POS tagging task.  <br />
+  
+<b>w/ BERT-Prosody</b>: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-Prosody means BERT encoder with a predictor 
+layer of the prosody structure prediction task.  <br />
+
+<b>w/ BERT-Multi</b>: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-Prosody means BERT encoder with three prediction 
+layers (polyphone disambiguation, joint CWS and POS tagging, prosody structure prediction) attached in parallel and BERT embeddings are fine-tuned 
+in a multi-task learning framework.  <br />
+  
+<b>w/ clean</b>: a front-end with a pre-trained FastSpeech2-based acoustic model using clean data (Mel + MB-MelGAN).  <br />
+
+<b>w/ noisy</b>: a front-end with a pre-trained FastSpeech2-based acoustic model using noisy data (Mel + MB-MelGAN).  <br />
 
 
 <p><em>1. 但是发型还要改进一点。</em></p>
