@@ -12,9 +12,9 @@
       </header>
     </article>
 
-    <div><b>Paper:</b> <a href="https://arxiv.org/abs/1712.05884">arXiv</a></div>
+    <div><b>Paper:</b> <a href="https://arxiv.org/abs/2111.07549">arXiv</a></div>
     <div><b>Authors:</b> Zhu Li, Yuqing Zhang, Mengxi Nie, Ming Yan, Mengnan He, Ruixiong Zhang, Caixia Gong</div>
-    <div><b>Abstract:</b> Recent advancements in end-to-end speech synthesis have made it possible to generate highly natural speech.
+    <div><b>Abstract:</b> Recent advancements in end-to-end speech synthesis have made it possible to generate highly natural speech. 
     However, training these models typically requires a large amount of high-fidelity speech data, 
     and for unseen texts, the prosody of synthesized speech is relatively unnatural.
     To address these issues, we propose to combine a fine-tuned BERT-based front-end
@@ -22,16 +22,35 @@
      The pre-trained BERT is fine-tuned on the polyphone disambiguation task, 
      the joint Chinese word segmentation (CWS) and part-of-speech (POS) tagging task, 
      and the prosody structure prediction (PSP) task in a multi-task learning framework.
-    FastSpeech 2 is pre- trained on large-scale external data that are noisy but easier to obtain. 
+    FastSpeech 2 is pre-trained on large-scale external data that are noisy but easier to obtain. 
     Experimental results show that both the fine-tuned BERT model and the pre-trained FastSpeech 2 can improve prosody, 
     especially for those structurally complex sentences.
     </div>
 
-    <!-- <div><br/>All of the below phrases are unseen by Tacotron 2 during training. <a href="../../index.html">Click here for more from the Tacotron team.</a></div> -->
 
-    <div>
+<div>
+<h3 id="comparison-with-other-models">Models:</h3>
+
+1. <b>Base</b>: a front-end with the original FastSpeech 2 (Mel + MB-MelGAN).  <br />
+  
+2. <b>w/ BERT</b>: a BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN).  <br />
+  
+3. <b>w/ BERT-CWS+POS</b>: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-CWS+POS means BERT encoder with a prediction
+layer of the joint CWS and POS tagging task.  <br />
+  
+4. <b>w/ BERT-Prosody</b>: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-Prosody means BERT encoder with a predictor 
+layer of the prosody structure prediction task.  <br />
+
+5. <b>w/ BERT-Multi</b>: a fine-tuned BERT-based front-end with the original FastSpeech 2 (Mel + MB-MelGAN). BERT-Prosody means BERT encoder with three prediction 
+layers (polyphone disambiguation, joint CWS and POS tagging, prosody structure prediction) attached in parallel and BERT embeddings are fine-tuned 
+in a multi-task learning framework.  <br />
+  
+6. <b>w/ clean</b>: a front-end with a pre-trained FastSpeech2-based acoustic model using clean data (Mel + MB-MelGAN).  <br />
+
+7. <b>w/ noisy</b>: a front-end with a pre-trained FastSpeech2-based acoustic model using noisy data (Mel + MB-MelGAN).  <br />
+
+
 <h3 id="comparison-with-other-models">All of the phrases below are unseen during training.</h3>
-
 
 <p><em>1. 但是发型还要改进一点。</em></p>
 <table><thead>
@@ -103,7 +122,7 @@
   </tbody></table> 
 
 
-<p><em>3. 他们繁育的种子远销全国各地。</em></p>
+<p><em>3. 他们繁育的蔬菜种子远销全国各地。</em></p>
 <table><thead>
 <tr>
 <th style="text-align: center">Base</th>
@@ -137,77 +156,308 @@
   </tr>
   </tbody></table> 
 
-
-
-<p><em>4. 这反应出美军方越来越关注网络战威胁。</em></p>
+  
+<h3 id="comparison-with-other-models">Pairwise Comparison of different models:</h3>
+  
+<p><em> 1. Base vs. w/ BERT </em></p>
 <table><thead>
 <tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
 <th style="text-align: center">Base</th>
 <th style="text-align: center">w/ BERT</th>
 </tr></thead><tbody>
 <tr>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-Base.wav" autoplay/></audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/19-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/19-w+BERT.wav" autoplay/></audio></td>
 </tr>
 </tbody></table>
 <table><thead>
 <tr>
-  <th style="text-align: center">w/ BERT-CWS+POS</th>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/128-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/128-w+BERT.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+
+<p><em> 2. Base vs. w/ BERT-CWS+POS </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT-CWS+POS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/139-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/139-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT-CWS+POS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/142-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/142-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+  
+<p><em> 3. Base vs. w/ BERT-Prosody </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
 <th style="text-align: center">w/ BERT-Prosody</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/143-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/143-w+BERT-prosody.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/149-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/149-w+BERT-prosody.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+  
+<p><em> 4. Base vs. w/ BERT-Multi </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
 <th style="text-align: center">w/ BERT-Multi</th>
 </tr></thead><tbody>
 <tr>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT-CWS+POS.wav" autoplay/></audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT-prosody.wav" autoplay/></audio></td>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/1-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/1-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/146-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/146-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+  
+<p><em> 5. w/ BERT vs. w/ BERT-CWS+POS </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ BERT-CWS+POS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/111-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/111-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ BERT-CWS+POS</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/116-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/116-w+BERT-CWS+POS.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+  
+<p><em> 6. w/ BERT vs. w/ BERT-Prosody </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/2-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/2-w+BERT-prosody.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ BERT-Prosody</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/24-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/24-w+BERT-prosody.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+  
+<p><em> 7. w/ BERT vs. w/ BERT-Multi </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/2-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/2-w+BERT-Multi.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ BERT-Multi</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT.wav" autoplay/></audio></td>
 <td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+BERT-Multi.wav" autoplay/></audio></td>
 </tr>
-</tbody></table> 
-<table><thead>
-  <tr>
-  <th style="text-align: center">w/ clean</th>
-  <th style="text-align: center">w/ noisy</th>
-  </tr></thead><tbody>
-  <tr>
-  <td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+clean.wav" autoplay/></audio></td>
-  <td style="text-align: center"><audio controls="controls" ><source src="./audio/70-w+noisy.wav" autoplay/></audio></td>
-  </tr>
-  </tbody></table>
-
-
-
-<p><em>5. 高昂的交易税费也缩小了二手房的降价空间。</em></p>
+</tbody></table>
+  
+<p><em> 8. Base vs. w/ clean </em></p>
 <table><thead>
 <tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
 <th style="text-align: center">Base</th>
-<th style="text-align: center">w/ BERT</th>
+<th style="text-align: center">w/ clean</th>
 </tr></thead><tbody>
 <tr>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-Base.wav" autoplay/></audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT.wav" autoplay/></audio></td>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/139-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/139-w+clean.wav" autoplay/></audio></td>
 </tr>
 </tbody></table>
 <table><thead>
 <tr>
-  <th style="text-align: center">w/ BERT-CWS+POS</th>
-<th style="text-align: center">w/ BERT-Prosody</th>
-<th style="text-align: center">w/ BERT-Multi</th>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ clean</th>
 </tr></thead><tbody>
 <tr>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT-CWS+POS.wav" autoplay/></audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT-prosody.wav" autoplay/></audio></td>
-<td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+BERT-Multi.wav" autoplay/></audio></td>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/142-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/142-w+clean.wav" autoplay/></audio></td>
 </tr>
-</tbody></table> 
+</tbody></table>
+
+<p><em> 9. Base vs. w/ noisy </em></p>
 <table><thead>
-  <tr>
-  <th style="text-align: center">w/ clean</th>
-  <th style="text-align: center">w/ noisy</th>
-  </tr></thead><tbody>
-  <tr>
-  <td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+clean.wav" autoplay/></audio></td>
-  <td style="text-align: center"><audio controls="controls" ><source src="./audio/101-w+noisy.wav" autoplay/></audio></td>
-  </tr>
-  </tbody></table>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ noisy</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/139-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/139-w+noisy.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">Base</th>
+<th style="text-align: center">w/ noisy</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/142-Base.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/142-w+noisy.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+  
+<p><em> 10. w /clean vs. w/ noisy </em></p>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ clean</th>
+<th style="text-align: center">w/ noisy</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 1</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/138-w+clean.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/138-w+noisy.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<table><thead>
+<tr>
+<th style="text-align: center"></th>
+<th style="text-align: center"></th>
+<th style="text-align: center">w/ clean</th>
+<th style="text-align: center">w/ noisy</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Sample 2</td>
+<td style="text-align: center">&nbsp &nbsp &nbsp</td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/147-w+clean.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./audio/147-w+noisy.wav" autoplay/></audio></td>
+</tr>
+</tbody></table>
   
       </div>
     
